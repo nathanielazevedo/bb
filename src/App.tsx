@@ -1,10 +1,10 @@
 import Frame from './components/Frame'
 import './App.css'
-import { ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import theme from './theme'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SignIn from './Signin'
-import BoxPlot from './components/BoxPlot'
+import Chat from './pages/chat/Chat'
 
 const router = createBrowserRouter([
   {
@@ -17,15 +17,20 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'charts',
-        element: <BoxPlot />,
+        element: <></>,
+      },
+      {
+        path: 'chat',
+        element: <Chat />,
       },
     ],
   },
 ])
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <RouterProvider router={router} />
     </ThemeProvider>
   )
